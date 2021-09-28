@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script>
+      
+        
+$(document).ready(function(){
+    $("button").click(function(){
+        $.get("https://ipinfo.io/"+ $("#add").val(), function (response) {
+        $("#ip").html(": " + response.ip);
+        $("#address").html(": " + response.city);
+        $("#region").html(": " + response.region);
+        $("#code").html(": " + response.country);
+        $("#tz").html(": " + response.timezone);
+        $("#coo").html(": " + response.loc);
+        $("#org").html(": " + response.org);
+        $("#postal").html(": " + response.postal);
+        }, "jsonp");
+    });
+});    
+
+
+</script>
+<style>
+    * {
+  padding: 3px;
+}
+
+.rt{
+  
+}
+</style>
+</head>
+<body>
+
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-3 col-sm-0">
+          
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="rt">
+            <input type="text" id="add" size="35"  placeholder="Enter IP Address"/>
+            <button type="button" class="btn btn-primary" >Find</button>
+          </div>
+            
+    
+            
+            
+        </div>
+        <div class="col-md-3 col-sm-0">
+          
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 col-sm-0">
+        
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <table class="table table-striped table-dark">
+    
+            <tbody>
+              <tr>
+                <td>IP</td>
+                <td><div id="ip"></div></td>
+              </tr>
+              <tr>
+                <td>City</td>
+                <td><div id="address"></div></td>
+              </tr>
+              <tr>
+                <td>Region</td>
+                <td><div id="region"></div></td>
+              </tr>
+              <tr>
+                <td>Country Code</td>
+                <td><div id="code"></div></td>
+              </tr>
+              <tr>
+                <td>Time Zone</td>
+                <td><div id="tz"></div></td>
+              </tr>
+              <tr>
+                <td>Org</td>
+                <td><div id="org"></div></td>
+              </tr>
+              <tr>
+                <td>Postal</td>
+                <td><div id="postal"></div></td>
+              </tr>
+              <tr>
+                <td>Coordinates</td>
+                <td><div id="coo"></div></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <div class="col-md-3 col-sm-0">
+        
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
